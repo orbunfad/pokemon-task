@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Pokémon</title>
+    <link rel="stylesheet" href="./public/css/edit.css" />
+    <script src="./public/js/edit.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Edit Pokemon</h1>
+      <form id="edit-form">
+        <input type="hidden" id="pokemon-id" />
+        <label for="pokemon-name">Name:</label>
+        <input type="text" id="pokemon-name" required />
+        <br />
+        <label for="pokemon-type">Type:</label>
+        <input type="text" id="pokemon-type" required />
+        <br />
+
+        <fieldset>
+          <legend>Base Stats:</legend>
+
+          <div>
+            <label for="pokemon-base-hp">HP:</label>
+            <input type="number" id="pokemon-base-hp" />
+          </div>
+          <div>
+            <label for="pokemon-base-attack">Attack:</label>
+            <input type="number" id="pokemon-base-attack" />
+          </div>
+          <div>
+            <label for="pokemon-base-defense">Defense:</label>
+            <input type="number" id="pokemon-base-defense" />
+          </div>
+          <div>
+            <label for="pokemon-base-sp-attack">Sp. Attack:</label>
+            <input type="number" id="pokemon-base-sp-attack" />
+          </div>
+          <div>
+            <label for="pokemon-base-sp-defense">Sp. Defense:</label>
+            <input type="number" id="pokemon-base-sp-defense" />
+          </div>
+          <div>
+            <label for="pokemon-base-speed">Speed:</label>
+            <input type="number" id="pokemon-base-speed" />
+          </div>
+        </fieldset>
+
+        <div class="buttons-container">
+          <button type="submit">Save</button>
+          <a href="index.html" class="back-buttons">Back to home</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
