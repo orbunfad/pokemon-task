@@ -1,6 +1,6 @@
 const API_URL = "./api/api.php";
 
-
+// Display the list of Pokemon in the HTML
 function displayPokemonList(pokemons) {
     const pokemonList = document.getElementById("pokemon-list");
     const pokemonTemplate = document.getElementById("pokemon-template").content;
@@ -15,11 +15,13 @@ function displayPokemonList(pokemons) {
     });
 }
 
+// Display a 'Not Found' message in the Pokemon list when no Pokémon are found
 function displayNotFoundMessage() {
     const pokemonList = document.getElementById("pokemon-list");
     pokemonList.innerHTML = "<tr><td colspan='2'>Not Found Pokemons</td></tr>";
 }
 
+// Fetch and display a random set of Pokemon from the API
 async function fetchRandomPokemon() {
     try {
         const response = await fetch(`${API_URL}?method=get_random_pokemon`);
@@ -31,6 +33,7 @@ async function fetchRandomPokemon() {
     }
 }
 
+// Add event listeners and fetch random Pokemon when the page has loaded
 window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("refresh-button").addEventListener("click", fetchRandomPokemon);
 

@@ -1,6 +1,7 @@
 const API_URL = "./api/api.php";
 const form = document.getElementById("edit-form");
 
+// Fetch Pokemon details from the API using the given ID and populate the form with the data
 async function fetchPokemonDetails(id) {
     const response = await fetch(
         `${API_URL}?method=get_pokemon_by_id&id=${id}`
@@ -9,6 +10,7 @@ async function fetchPokemonDetails(id) {
     populateForm(data);
 }
 
+// Populate the form fields with the given Pokemon data
 function populateForm(pokemon) {
     document.getElementById("pokemon-id").value = pokemon.id;
     document.getElementById("pokemon-name").value = pokemon.name.english;
@@ -22,6 +24,7 @@ function populateForm(pokemon) {
     document.getElementById("pokemon-base-speed").value = pokemon.base.Speed;
 }
 
+// Handle the form submission, display an alert, and redirect to the Pokemon details page
 async function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -30,8 +33,10 @@ async function handleFormSubmit(event) {
         }`;
 }
 
+// Add a 'submit' event listener to the form
 form.addEventListener('submit', handleFormSubmit);
 
+// Add an event listener and fetch Pokémon details when the page has loaded
 window.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
