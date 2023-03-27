@@ -21,9 +21,18 @@ switch ($method) {
     case 'get_random_pokemon':
         // Set the response content type to JSON
         header('Content-Type: application/json');
-        // Shuffle the Pokemon data array
+
+        // Get the list of IDs to exclude from the request
+        $exclude = isset($_GET['exclude']) ? explode(',', $_GET['exclude']) : [];
+
+        // Filter out the excluded Pokémon
+        $data = array_filter($data, function ($pokemon) use ($exclude) {
+            return !in_array($pokemon['id'], $exclude);
+        });
+
+        // Shuffle and get 5 random Pokémon
         shuffle($data);
-        // Output the first 5 Pokemon as a JSON-encoded string
+
         echo json_encode(array_slice($data, 0, 5));
         break;
 
